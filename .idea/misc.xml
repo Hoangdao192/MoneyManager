@@ -5,6 +5,7 @@
       <map>
         <entry key="..\:/Workspace/Android/SpendingManager/app/src/main/res/drawable/bottom_stroke_3.xml" value="0.1675" />
         <entry key="..\:/Workspace/Android/SpendingManager/app/src/main/res/drawable/circle.xml" value="0.1675" />
+        <entry key="..\:/Workspace/Android/SpendingManager/app/src/main/res/drawable/ic_category_bill.xml" value="0.1675" />
         <entry key="..\:/Workspace/Android/SpendingManager/app/src/main/res/drawable/ic_notification.xml" value="0.1675" />
         <entry key="..\:/Workspace/Android/SpendingManager/app/src/main/res/drawable/rounded_corner_15.xml" value="0.1675" />
         <entry key="..\:/Workspace/Android/SpendingManager/app/src/main/res/drawable/rounded_corner_50.xml" value="0.1675" />
@@ -16,6 +17,7 @@
         <entry key="..\:/Workspace/Android/SpendingManager/app/src/main/res/layout/fragment_home.xml" value="0.25416666666666665" />
         <entry key="..\:/Workspace/Android/SpendingManager/app/src/main/res/layout/fund_selector_dialog.xml" value="0.25416666666666665" />
         <entry key="..\:/Workspace/Android/SpendingManager/app/src/main/res/layout/fund_selector_item.xml" value="0.253125" />
+        <entry key="..\:/Workspace/Android/SpendingManager/app/src/main/res/layout/transaction_category_quick_select_item.xml" value="0.536" />
         <entry key="..\:/Workspace/Android/SpendingManager/app/src/main/res/menu/bottom_nav_menu.xml" value="0.25416666666666665" />
       </map>
     </option>

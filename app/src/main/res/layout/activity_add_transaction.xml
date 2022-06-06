@@ -228,7 +228,6 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/tilNoteInput"
             android:layout_marginTop="30dp">
-
             <TextView
                 android:id="@+id/txtCategory"
                 android:layout_width="wrap_content"
@@ -237,104 +236,12 @@
                 android:textColor="@color/black"
                 android:textSize="20sp"
                 android:textStyle="bold" />
-
-            <com.google.android.flexbox.FlexboxLayout
+            <androidx.recyclerview.widget.RecyclerView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/txtCategory"
                 android:layout_marginTop="20dp"
-                app:flexWrap="wrap">
-
-                <RelativeLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginRight="10dp"
-                    android:layout_marginBottom="15dp"
-                    android:background="@drawable/rounded_corner_500_stroke_1"
-                    android:paddingRight="15dp">
-
-                    <ImageView
-                        android:id="@+id/imgCategory"
-                        android:layout_width="40dp"
-                        android:layout_height="40dp"
-                        android:background="@drawable/rounded_corner_50"
-                        android:backgroundTint="#ffd89d"
-                        android:padding="10dp"
-                        android:src="@drawable/ic_education"
-                        app:tint="#ff9069" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_centerVertical="true"
-                        android:layout_marginLeft="7dp"
-                        android:layout_toRightOf="@id/imgCategory"
-                        android:text="Học phí"
-                        android:textColor="@color/black"
-                        android:textSize="18sp"
-                        android:textStyle="bold" />
-                </RelativeLayout>
-
-                <RelativeLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginRight="10dp"
-                    android:layout_marginBottom="15dp"
-                    android:background="@drawable/rounded_corner_500_stroke_1"
-                    android:paddingRight="15dp">
-
-                    <ImageView
-                        android:id="@+id/imgCategory1"
-                        android:layout_width="40dp"
-                        android:layout_height="40dp"
-                        android:background="@drawable/rounded_corner_50"
-                        android:backgroundTint="#bdfff7"
-                        android:padding="10dp"
-                        android:src="@drawable/ic_food_and_drink"
-                        app:tint="#6187b8" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_centerVertical="true"
-                        android:layout_marginLeft="7dp"
-                        android:layout_toRightOf="@id/imgCategory1"
-                        android:text="Ăn uống"
-                        android:textColor="@color/black"
-                        android:textSize="18sp"
-                        android:textStyle="bold" />
-                </RelativeLayout>
-
-                <RelativeLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginRight="10dp"
-                    android:layout_marginBottom="15dp"
-                    android:background="@drawable/rounded_corner_500_stroke_1"
-                    android:paddingRight="15dp">
-
-                    <ImageView
-                        android:id="@+id/imgCategory2"
-                        android:layout_width="40dp"
-                        android:layout_height="40dp"
-                        android:background="@drawable/rounded_corner_50"
-                        android:backgroundTint="#ffdcdc"
-                        android:padding="10dp"
-                        android:src="@drawable/ic_bill"
-                        app:tint="#ff9797" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_centerVertical="true"
-                        android:layout_marginLeft="7dp"
-                        android:layout_toRightOf="@id/imgCategory2"
-                        android:text="Hóa đơn"
-                        android:textColor="@color/black"
-                        android:textSize="18sp"
-                        android:textStyle="bold" />
-                </RelativeLayout>
-            </com.google.android.flexbox.FlexboxLayout>
+                android:id="@+id/rlvTransactionCategory"/>
         </RelativeLayout>
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton

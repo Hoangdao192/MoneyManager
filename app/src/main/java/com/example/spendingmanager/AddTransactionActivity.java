@@ -1,6 +1,7 @@
 package com.example.spendingmanager;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
@@ -14,9 +15,14 @@ import android.widget.TextView;
 import android.widget.TimePicker;
 
 import com.example.spendingmanager.adapter.FundRecyclerViewAdapter;
+import com.example.spendingmanager.adapter.TransactionCategoryQuickSelectAdapter;
 import com.example.spendingmanager.database.DatabaseHelper;
 import com.example.spendingmanager.database.model.FinancialFund;
 import com.example.spendingmanager.database.model.SpendingTransaction;
+import com.example.spendingmanager.database.model.TransactionCategory;
+import com.google.android.flexbox.FlexDirection;
+import com.google.android.flexbox.FlexWrap;
+import com.google.android.flexbox.FlexboxLayoutManager;
 import com.google.android.material.datepicker.MaterialDatePicker;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.textfield.TextInputEditText;
@@ -35,7 +41,20 @@ public class AddTransactionActivity extends AppCompatActivity {
     private TextInputEditText tiEdtNote;
     private FloatingActionButton saveButton;
 
+    private RecyclerView rlvTransactionCategory;
+
     private void initViews() {
+        rlvTransactionCategory = findViewById(R.id.rlvTransactionCategory);
+        TransactionCategoryQuickSelectAdapter adapter = new TransactionCategoryQuickSelectAdapter(
+                databaseHelper.transactionCategoryDao().getAll(),
+                this
+        );
+        rlvTransactionCategory.setAdapter(adapter);
+        FlexboxLayoutManager flexboxLayoutManager = new FlexboxLayoutManager(this);
+        flexboxLayoutManager.setFlexWrap(FlexWrap.WRAP);
+        flexboxLayoutManager.setFlexDirection(FlexDirection.ROW);
+        rlvTransactionCategory.setLayoutManager(flexboxLayoutManager);
+
         relDateSelect = findViewById(R.id.relDateSelect);
         txtDate = findViewById(R.id.txtDate);
         txtTime = findViewById(R.id.txtTime);
@@ -169,6 +188,13 @@ public class AddTransactionActivity extends AppCompatActivity {
         long newBalance = financialFund.getBalance() - amount;
         financialFund.setBalance(newBalance);
         databaseHelper.financialFundDao().update(financialFund);
+    }
+
+    /**
+     * Get all TransactionCategory and display it as View
+     */
+    private void loadAllTransactionCategory() {
+        List<TransactionCategory> transactionCategories = databaseHelper.transactionCategoryDao().getAll();
     }
 
     @Override

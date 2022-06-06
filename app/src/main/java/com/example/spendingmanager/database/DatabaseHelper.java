@@ -28,7 +28,7 @@ import java.util.List;
                 TransactionCategory.class,
                 Wallet.class
         },
-        version = 5
+        version = 6
 )
 public abstract class DatabaseHelper extends RoomDatabase {
     private static Context applicationContext;
@@ -76,7 +76,7 @@ public abstract class DatabaseHelper extends RoomDatabase {
         };
         for(int i = 0; i < transactionCategoryNames.length; ++i) {
             TransactionCategory transactionCategory = new TransactionCategory(
-                    transactionCategoryNames[i]
+                    transactionCategoryNames[i], TransactionCategory.TYPE_DEFAULT
             );
             INSTANCE.transactionCategoryDao().insert(transactionCategory);
         }

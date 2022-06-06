@@ -12,15 +12,23 @@ public class TransactionCategory {
     @PrimaryKey(autoGenerate = true)
     private int id;
     private String name;
+    private String type;
 
-    public TransactionCategory(int id, String name) {
+    @Ignore
+    public static String TYPE_DEFAULT = "default";
+    @Ignore
+    public static String TYPE_CUSTOM = "custom";
+
+    public TransactionCategory(int id, String name, String type) {
         this.id = id;
         this.name = name;
+        this.type = type;
     }
 
     @Ignore
-    public TransactionCategory(String name) {
+    public TransactionCategory(String name, String type) {
         this.name = name;
+        this.type = type;
     }
 
     public int getId() {
@@ -37,5 +45,13 @@ public class TransactionCategory {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
     }
 }
