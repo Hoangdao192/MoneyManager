@@ -1,0 +1,353 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".AddTransactionActivity">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/toolbar"
+        android:padding="15dp">
+        <ImageButton
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:background="@drawable/ic_back"
+            android:id="@+id/btnBack"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Thêm mới"
+            android:textSize="20sp"
+            android:textColor="@color/black"
+            android:layout_toRightOf="@id/btnBack"
+            android:layout_marginLeft="30dp"
+            android:layout_centerVertical="true"/>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/toolbar"
+        android:layout_centerInParent="true"
+        android:paddingHorizontal="20dp">
+
+        <RelativeLayout
+            android:id="@+id/relTransactionType"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <RelativeLayout
+                android:id="@+id/relExpenseTransaction"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/rounded_corner_50"
+                android:backgroundTint="#bed0ff"
+                android:paddingVertical="10dp"
+                android:paddingLeft="20dp"
+                android:paddingRight="15dp">
+
+                <TextView
+                    android:id="@+id/txtExpense"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Chi tiêu"
+                    android:textColor="@color/black"
+                    android:textSize="20sp" />
+
+                <ImageView
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="10dp"
+                    android:layout_toRightOf="@id/txtExpense"
+                    android:background="@drawable/circle"
+                    android:backgroundTint="#ffffd7"
+                    android:padding="2dp"
+                    android:rotation="-45"
+                    android:src="@drawable/ic_arrow_small_right"
+                    app:tint="#cdb380" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/relIncomeTransaction"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_toRightOf="@id/relExpenseTransaction"
+                android:paddingVertical="10dp"
+                android:paddingLeft="20dp"
+                android:paddingRight="15dp">
+
+                <TextView
+                    android:id="@+id/txtIncome"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Thu nhập"
+                    android:textColor="#b6b6b6"
+                    android:textSize="20sp" />
+
+                <ImageView
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="10dp"
+                    android:layout_toRightOf="@id/txtIncome"
+                    android:background="@drawable/circle"
+                    android:backgroundTint="#e2f2f1"
+                    android:padding="2dp"
+                    android:rotation="135"
+                    android:src="@drawable/ic_arrow_small_right"
+                    app:tint="#27705d" />
+            </RelativeLayout>
+        </RelativeLayout>
+
+        <com.google.android.flexbox.FlexboxLayout
+            android:id="@+id/relDateTime"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/relTransactionType"
+            android:layout_marginTop="20dp"
+            app:flexWrap="wrap">
+
+            <RelativeLayout
+                android:id="@+id/relDateSelect"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="10dp"
+                android:layout_marginBottom="5dp"
+                android:background="@drawable/rounded_corner_500_stroke_1"
+                android:paddingHorizontal="15dp"
+                android:paddingVertical="5dp"
+                app:tint="@color/black">
+
+                <ImageView
+                    android:id="@+id/imgCalendar"
+                    android:layout_width="15dp"
+                    android:layout_height="15dp"
+                    android:layout_centerVertical="true"
+                    android:src="@drawable/ic_calendar" />
+
+                <TextView
+                    android:id="@+id/txtDate"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_toRightOf="@id/imgCalendar"
+                    android:text="Thứ Hai, 06 Th.Sáu, 2022"
+                    android:textColor="@color/black"
+                    android:textSize="15sp" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/relTimeSelect"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@id/relDateSelect"
+                android:background="@drawable/rounded_corner_500_stroke_1"
+                android:paddingHorizontal="15dp"
+                android:paddingVertical="5dp"
+                app:tint="@color/black">
+
+                <ImageView
+                    android:id="@+id/imgTime"
+                    android:layout_width="15dp"
+                    android:layout_height="15dp"
+                    android:layout_centerVertical="true"
+                    android:src="@drawable/ic_clock" />
+
+                <TextView
+                    android:id="@+id/txtTime"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_toRightOf="@id/imgTime"
+                    android:text="02:12 pm"
+                    android:textColor="@color/black"
+                    android:textSize="15sp" />
+            </RelativeLayout>
+        </com.google.android.flexbox.FlexboxLayout>
+
+        <RelativeLayout
+            android:id="@+id/relAmountInput"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/relDateTime"
+            android:layout_marginTop="20dp">
+
+            <EditText
+                android:id="@+id/edtAmountInput"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_toLeftOf="@id/txtMoneyUnit"
+                android:background="@null"
+                android:hint="Nhập số tiền"
+                android:inputType="number"
+                android:paddingLeft="10dp"
+                android:textSize="30sp" />
+
+            <TextView
+                android:id="@+id/txtMoneyUnit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBaseline="@id/edtAmountInput"
+                android:layout_alignParentRight="true"
+                android:paddingRight="10dp"
+                android:text="đ"
+                android:textColor="@color/black"
+                android:textSize="25dp" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:layout_below="@id/edtAmountInput"
+                android:layout_marginTop="15dp"
+                android:background="#d3d3d3" />
+        </RelativeLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/tilNoteInput"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/relAmountInput"
+            android:layout_marginTop="20dp">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Ghi chú"
+                android:id="@+id/tiEdtNote"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <RelativeLayout
+            android:id="@+id/relCategorySelect"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tilNoteInput"
+            android:layout_marginTop="30dp">
+
+            <TextView
+                android:id="@+id/txtCategory"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Nhóm: "
+                android:textColor="@color/black"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <com.google.android.flexbox.FlexboxLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/txtCategory"
+                android:layout_marginTop="20dp"
+                app:flexWrap="wrap">
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginBottom="15dp"
+                    android:background="@drawable/rounded_corner_500_stroke_1"
+                    android:paddingRight="15dp">
+
+                    <ImageView
+                        android:id="@+id/imgCategory"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:background="@drawable/rounded_corner_50"
+                        android:backgroundTint="#ffd89d"
+                        android:padding="10dp"
+                        android:src="@drawable/ic_education"
+                        app:tint="#ff9069" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="7dp"
+                        android:layout_toRightOf="@id/imgCategory"
+                        android:text="Học phí"
+                        android:textColor="@color/black"
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginBottom="15dp"
+                    android:background="@drawable/rounded_corner_500_stroke_1"
+                    android:paddingRight="15dp">
+
+                    <ImageView
+                        android:id="@+id/imgCategory1"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:background="@drawable/rounded_corner_50"
+                        android:backgroundTint="#bdfff7"
+                        android:padding="10dp"
+                        android:src="@drawable/ic_food_and_drink"
+                        app:tint="#6187b8" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="7dp"
+                        android:layout_toRightOf="@id/imgCategory1"
+                        android:text="Ăn uống"
+                        android:textColor="@color/black"
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginBottom="15dp"
+                    android:background="@drawable/rounded_corner_500_stroke_1"
+                    android:paddingRight="15dp">
+
+                    <ImageView
+                        android:id="@+id/imgCategory2"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:background="@drawable/rounded_corner_50"
+                        android:backgroundTint="#ffdcdc"
+                        android:padding="10dp"
+                        android:src="@drawable/ic_bill"
+                        app:tint="#ff9797" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="7dp"
+                        android:layout_toRightOf="@id/imgCategory2"
+                        android:text="Hóa đơn"
+                        android:textColor="@color/black"
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
+                </RelativeLayout>
+            </com.google.android.flexbox.FlexboxLayout>
+        </RelativeLayout>
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginLeft="10dp"
+            android:layout_marginBottom="20dp"
+            android:background="#1a4297"
+            android:backgroundTint="#1a4297"
+            app:tint="@color/white"
+            android:src="@drawable/ic_baseline_check_24"
+            android:id="@+id/flbSave"/>
+    </RelativeLayout>
+</RelativeLayout>

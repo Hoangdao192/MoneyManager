@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".HomeFragment">
+
+    <RelativeLayout
+        android:id="@+id/relBody"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="15dp">
+
+        <RelativeLayout
+            android:id="@+id/relHeading"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/txtAppTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:text="Quản lý chi tiêu"
+                android:textColor="@color/black"
+                android:textSize="20sp" />
+
+            <ImageButton
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:background="@drawable/ic_notification" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/relBalance"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/relHeading"
+            android:layout_marginTop="20dp">
+
+            <TextView
+                android:id="@+id/txtTotalBalance"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:text="2,000,000.00 đ"
+                android:textSize="27sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/txtTotalBalance"
+                android:layout_centerHorizontal="true"
+                android:text="Tổng số dư"
+                android:textSize="15sp" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/relInOutMoney"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/relBalance"
+            android:layout_marginHorizontal="10dp"
+            android:layout_marginTop="20dp">
+
+            <RelativeLayout
+                android:id="@+id/relMoneyIn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:background="@drawable/rounded_corner_10"
+                android:backgroundTint="#67d4ca"
+                android:paddingVertical="10dp"
+                android:paddingLeft="10dp"
+                android:paddingRight="30dp">
+
+                <TextView
+                    android:id="@+id/txtMoneyIn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Tiền vào"
+                    android:textColor="@color/white"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/txtMoneyIn"
+                    android:text="2,000,000đ"
+                    android:textColor="@color/white"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/relMoneyOut"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:background="@drawable/rounded_corner_10"
+                android:backgroundTint="#f28080"
+                android:paddingVertical="10dp"
+                android:paddingLeft="10dp"
+                android:paddingRight="30dp">
+
+                <TextView
+                    android:id="@+id/txtMoneyOut"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Tiền ra"
+                    android:textColor="@color/white"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/txtMoneyOut"
+                    android:text="1,000,000đ"
+                    android:textColor="@color/white"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+            </RelativeLayout>
+        </RelativeLayout>
+
+        <Button
+            android:id="@+id/btnAdd"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:padding="10dp"
+            android:text="Add spending"
+            android:textSize="20sp" />
+
+        <Button
+            android:id="@+id/btnAddFund"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/btnAdd"
+            android:layout_centerInParent="true"
+            android:padding="10dp"
+            android:text="Add fund"
+            android:textSize="20sp" />
+
+        <Button
+            android:id="@+id/btnViewFund"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/btnAddFund"
+            android:layout_centerInParent="true"
+            android:padding="10dp"
+            android:text="View fund"
+            android:textSize="20sp" />
+    </RelativeLayout>
+
+</FrameLayout>
