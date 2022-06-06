@@ -28,17 +28,25 @@ public class AddTransactionActivity extends AppCompatActivity {
     private DatabaseHelper databaseHelper;
 
     private RelativeLayout relDateSelect;
+    private TextView txtDate;
     private RelativeLayout relTimeSelect;
+    private TextView txtTime;
     private EditText edtAmountInput;
     private TextInputEditText tiEdtNote;
     private FloatingActionButton saveButton;
 
     private void initViews() {
         relDateSelect = findViewById(R.id.relDateSelect);
+        txtDate = findViewById(R.id.txtDate);
+        txtTime = findViewById(R.id.txtTime);
         relTimeSelect = findViewById(R.id.relTimeSelect);
         edtAmountInput = findViewById(R.id.edtAmountInput);
         tiEdtNote = findViewById(R.id.tiEdtNote);
         saveButton = findViewById(R.id.flbSave);
+        //  Set current date time
+        Calendar calendar = Calendar.getInstance();
+        setTimeText(calendar.get(Calendar.HOUR_OF_DAY), calendar.get(Calendar.MINUTE));
+        setDateText(calendar.get(Calendar.DATE), calendar.get(Calendar.MONTH) + 1, calendar.get(Calendar.YEAR));
     }
 
     private void initEventHandle() {
@@ -50,8 +58,8 @@ public class AddTransactionActivity extends AppCompatActivity {
                         AddTransactionActivity.this,
                         new DatePickerDialog.OnDateSetListener() {
                             @Override
-                            public void onDateSet(DatePicker datePicker, int i, int i1, int i2) {
-
+                            public void onDateSet(DatePicker datePicker, int year, int month, int day) {
+                                setDateText(day, month + 1, year);
                             }
                         },
                         calendar.get(Calendar.YEAR),
@@ -70,8 +78,8 @@ public class AddTransactionActivity extends AppCompatActivity {
                         AddTransactionActivity.this,
                         new TimePickerDialog.OnTimeSetListener() {
                             @Override
-                            public void onTimeSet(TimePicker timePicker, int i, int i1) {
-
+                            public void onTimeSet(TimePicker timePicker, int hour, int minute) {
+                                setTimeText(hour, minute);
                             }
                         },
                         calendar.get(Calendar.HOUR_OF_DAY),
@@ -88,6 +96,56 @@ public class AddTransactionActivity extends AppCompatActivity {
         for (int i = 0; i < spendingTransactionList.size(); ++i) {
             System.out.println(spendingTransactionList.get(i).toString());
         }
+    }
+
+    private void setTimeText(int hour, int minute) {
+        String time = "";
+        if (hour < 10) {
+            time += "0";
+        }
+        time += hour + ":";
+        if (minute < 10) {
+            time += "0";
+        }
+        time += minute;
+        txtTime.setText(time);
+    }
+
+    private void setDateText(int day, int month, int year) {
+        Calendar calendar = Calendar.getInstance();
+        calendar.set(year, month - 1, day);
+        calendar.setFirstDayOfWeek(Calendar.MONDAY);
+        int dayOfWeek = calendar.get(Calendar.DAY_OF_WEEK);
+        String weekDayString = "";
+        //  Convert day of week to string
+        switch (dayOfWeek) {
+            case 1: weekDayString = "Chủ nhật"; break;
+            case 2: weekDayString = "Thứ Hai"; break;
+            case 3: weekDayString = "Thứ Ba"; break;
+            case 4: weekDayString = "Thứ Tư"; break;
+            case 5: weekDayString = "Thứ Năm"; break;
+            case 6: weekDayString = "Thứ Sáu"; break;
+            case 7: weekDayString = "Thứ Bảy"; break;
+        }
+        //  Convert month to string
+        String monthString = "";
+        switch (month) {
+            case 1: monthString = "Tháng 1"; break;
+            case 2: monthString = "Tháng 2"; break;
+            case 3: monthString = "Tháng 3"; break;
+            case 4: monthString = "Tháng 4"; break;
+            case 5: monthString = "Tháng 5"; break;
+            case 6: monthString = "Tháng 6"; break;
+            case 7: monthString = "Tháng 7"; break;
+            case 8: monthString = "Tháng 8"; break;
+            case 9: monthString = "Tháng 9"; break;
+            case 10: monthString = "Tháng 10"; break;
+            case 11: monthString = "Tháng 11"; break;
+            case 12: monthString = "Tháng 12"; break;
+        }
+
+        String dateStringFormat = weekDayString + ", " + day + " " + monthString + ", " + year;
+        txtDate.setText(dateStringFormat);
     }
 
     private void addSpendingTransaction(

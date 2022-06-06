@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Spending Manager</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <!-- DEFAULT TRANSACTION CATEGORY NAME -->
+    <string name="category_general">Chung</string>
+    <string name="category_education">Giáo dục</string>
+    <string name="category_bill">Hóa đơn</string>
+    <string name="category_food_drink">Ăn uống</string>
+
+    <!-- DEFAULT WALLET NAME -->
+    <string name="wallet_cash">Tiền mặt</string>
+</resources>
